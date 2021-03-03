@@ -9,7 +9,7 @@ class CreateRobot extends Component {
         this.onChangeColor = this.onChangeColor.bind(this);
         this.onChangeAttack = this.onChangeAttack.bind(this);
         this.onChangeDefense = this.onChangeDefense.bind(this);
-       
+        this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             name: '',
@@ -41,6 +41,23 @@ class CreateRobot extends Component {
         this.setState({
             defense: e.target.value
         });
+    }
+
+    onSubmit(e) {
+        e.preventDefault();
+        
+        console.log(`Form submitted:`);
+        console.log(`Name: ${this.state.name}`);
+        console.log(`Color: ${this.state.color}`);
+        console.log(`Attack: ${this.state.attack}`);
+        console.log(`Defense: ${this.state.defense}`);
+        
+        this.setState({
+            name: '',
+            color: '',
+            attack: '',
+            defense: ''
+        })
     }
 
 
