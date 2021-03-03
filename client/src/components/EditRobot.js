@@ -32,6 +32,43 @@ componentDidMount() {
     return (
         <div>
           <h2>Edit Robot</h2>
+          <form onSubmit={this.onSubmit}>
+                    <div>
+                        <label>Name: </label>
+                        <input  type="text"
+                                value={this.state.name}
+                                onChange={this.onChangeName}
+                                />
+                    </div>
+                    <div>
+                        <label>Color: </label>
+                        <input  type="text"
+                                value={this.state.color}
+                                onChange={this.onChangeColor}
+                                />
+                    </div>
+                    <div>
+                        <label>Attack: </label>
+                        <input  type="text"
+                                value={this.state.attack}
+                                onChange={this.onChangeAttack}
+                                />
+                    </div>
+                    <div>
+                        <label>Defense: </label>
+                        <input  type="text"
+                                value={this.state.defense}
+                                onChange={this.onChangeDefense}
+                                />
+                    </div>
+                    <br/>
+                        <div>
+                        <Link to={`/robots/${this.state.id}`}>
+                        <button>Save Post</button>
+                       </Link>
+                        </div>
+          
+            </form>
         </div>
    
     );
