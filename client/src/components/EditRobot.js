@@ -26,6 +26,44 @@ componentDidMount() {
           console.log(error);
       })
 }
+onChangeName(e) {
+  this.setState({
+      name: e.target.value
+  });
+}
+
+onChangeColor(e) {
+  this.setState({
+      color: e.target.value
+  });
+}
+
+onChangeAttack(e) {
+  this.setState({
+      attack: e.target.value
+  });
+}
+
+onChangeDefense(e) {
+  this.setState({
+    defense: e.target.value
+  });
+}
+
+onSubmit(e) {
+  e.preventDefault();
+  const obj = {
+      name: this.state.name,
+      color: this.state.color,
+      attack: this.state.attack,
+      defense: this.state.defense
+  };
+  console.log(obj);
+  axios.post('http://localhost:4000/robots/update/'+this.props.match.params.id, obj)
+      .then(res => console.log(res.data));
+  
+  this.props.history.push('/');
+}
 
 
   render() {
