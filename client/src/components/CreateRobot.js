@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import axios from 'axios';
 
 const NewRobotFormContainer = styled.div`
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0   6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -88,6 +89,16 @@ class CreateRobot extends Component {
         console.log(`Color: ${this.state.color}`);
         console.log(`Attack: ${this.state.attack}`);
         console.log(`Defense: ${this.state.defense}`);
+
+        const newRobot = {
+            name: this.state.name,
+            color: this.state.color,
+            attack: this.state.todo_priority,
+            defense: this.state.defense
+        };
+
+        axios.post('http://localhost:4000/robots/add', newRobot)
+            .then(res => console.log(res.data));
         
         this.setState({
             name: '',
