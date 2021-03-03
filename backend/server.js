@@ -33,6 +33,16 @@ robotRoutes.route('/:id').get(function(req, res) {
     });
 });
 
+robotRoutes.route('/add').post(function(req, res) {
+    let robot = new Robot(req.body);
+    robot.save()
+        .then(robot => {
+            res.status(200).json({'robot': 'robot added successfully'});
+        })
+        .catch(err => {
+            res.status(400).send('adding new robot failed');
+        });
+});
 
 app.use('/robots', robotRoutes);
 
