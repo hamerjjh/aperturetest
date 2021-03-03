@@ -44,6 +44,25 @@ robotRoutes.route('/add').post(function(req, res) {
         });
 });
 
+robotRoutes.route('/update/:id').post(function(req, res) {
+    Robot.findById(req.params.id, function(err, robot) {
+        if (!robot)
+            res.status(404).send('data is not found');
+        else
+            robot.name = req.body.name;
+            robot.color = req.body.color;
+            robot.attack = req.body.attack;
+            robot.defense = req.body.defense;
+
+            robot.save().then(robot => {
+                res.json('Robot updated');
+            })
+            .catch(err => {
+                res.status(400).send("Update not possible");
+            });
+    });
+});
+
 app.use('/robots', robotRoutes);
 
 app.listen(PORT, function() {
