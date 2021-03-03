@@ -3,13 +3,14 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import RobotList from "./components/RobotList";
 import CreateRobot from "./components/CreateRobot";
 import EditRobot from "./components/EditRobot";
+import NavBar from "./components/NavBar";
 
 class App extends Component {
   render() {
     return (
       <Router>
         <div>
-          <h2>Here are a list of robots</h2>
+         <NavBar />
         </div>
 
         <Route path="/" exact component={RobotList} />
