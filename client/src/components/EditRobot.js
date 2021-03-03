@@ -5,6 +5,12 @@ class EditRobot extends Component {
   constructor(props) {
     super(props);
 
+    this.onChangeName = this.onChangeName.bind(this);
+    this.onChangeColor = this.onChangeColor.bind(this);
+    this.onChangeAttack = this.onChangeAttack.bind(this);
+    this.onChangeDefense = this.onChangeDefense.bind(this);
+    this.onSubmit = this.onSubmit.bind(this);
+
     this.state = {
         name: '',
         color: '',
