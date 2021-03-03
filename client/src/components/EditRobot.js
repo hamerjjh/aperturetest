@@ -64,7 +64,7 @@ componentDidMount() {
                     <br/>
                         <div>
                         <Link to={`/robots/${this.state.id}`}>
-                        <button>Save Post</button>
+                        <button>Save Robot</button>
                        </Link>
                         </div>
           
