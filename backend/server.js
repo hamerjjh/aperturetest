@@ -26,6 +26,13 @@ robotRoutes.route('/').get(function(req, res) {
     });
 });
 
+robotRoutes.route('/:id').get(function(req, res) {
+    let id = req.params.id;
+    Robot.findById(id, function(err, robot) {
+        res.json(robot);
+    });
+});
+
 
 app.use('/robots', robotRoutes);
 
